@@ -9,11 +9,12 @@
     "Maratons4"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "",
+    "sources": "https://github.com/Maratons4/RandomItems",
+    "issues": "https://github.com/Maratons4/RandomItems/issues"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT",
   "icon": "assets/randomitems/icon.png",
 
   "environment": "*",
