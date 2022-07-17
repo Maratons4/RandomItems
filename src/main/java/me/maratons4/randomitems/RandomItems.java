@@ -39,26 +39,27 @@ public class RandomItems implements ModInitializer {
             new Item.Settings().group(RandomItems.RANDOMITEMS));
 
     public static final Block TITANIUM_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(5.0f).requiresTool());
+    public static final Item TITANIUM_INGOT = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
 
     private static ConfiguredFeature<?, ?> OVERWORLD_TITANIUM_ORE_CONFIGURED_FEATURE = new ConfiguredFeature
             (Feature.ORE, new OreFeatureConfig(
                     OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
                     RandomItems.TITANIUM_ORE.getDefaultState(),
-                    9)); // vein size
+                    5)); // vein size
 
     public static PlacedFeature OVERWORLD_TITANIUM_ORE_PLACED_FEATURE = new PlacedFeature(
             RegistryEntry.of(OVERWORLD_TITANIUM_ORE_CONFIGURED_FEATURE),
             Arrays.asList(
-                    CountPlacementModifier.of(20), // number of veins per chunk
+                    CountPlacementModifier.of(10), // number of veins per chunk
                     SquarePlacementModifier.of(), // spreading horizontally
-                    HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64))
-            )); // height
+                    HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64)))); // height
 
     @Override
     public void onInitialize() {
         Registry.register(Registry.ITEM, new Identifier("randomitems", "diamond_drill"), DIAMOND_DRILL);
         Registry.register(Registry.BLOCK, new Identifier("randomitems", "titanium_ore"), TITANIUM_ORE);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_ore"), new BlockItem(TITANIUM_ORE, new FabricItemSettings().group(RandomItems.RANDOMITEMS)));
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_ingot"), TITANIUM_INGOT);
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
                 new Identifier("randomitems", "overworld_titanium_ore"), OVERWORLD_TITANIUM_ORE_CONFIGURED_FEATURE);
