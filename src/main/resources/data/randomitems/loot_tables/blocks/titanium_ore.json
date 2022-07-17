@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "randomitems:example_block"
+          "name": "randomitems:titanium_ore"
         }
       ],
       "conditions": [
