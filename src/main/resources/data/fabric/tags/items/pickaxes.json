@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "randomitems:diamond_drill"
+    "randomitems:diamond_drill",
+    "randomitems:titanium_drill"
   ]
 }

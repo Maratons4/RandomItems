@@ -4,9 +4,9 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class IronBlockMaterial  implements ToolMaterial {
+public class Diamond_Material implements ToolMaterial {
 
-    public static final IronBlockMaterial INSTANCE = new IronBlockMaterial();
+    public static final Diamond_Material INSTANCE = new Diamond_Material();
 
     @Override
     public int getDurability() {
@@ -25,11 +25,9 @@ public class IronBlockMaterial  implements ToolMaterial {
         return 5;
     }
     @Override
-    public int getEnchantability() {
-        return 15;
-    }
+    public int getEnchantability() { return 15; }
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.IRON_BLOCK);
+        return Ingredient.ofItems(Items.DIAMOND);
     }
 }

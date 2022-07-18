@@ -1,29 +1,32 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "LD ",
+    "LT ",
     "IR!",
-    "III"
+    "IDI"
   ],
   "key": {
-    "D": {
-      "item": "minecraft:diamond"
+    "T": {
+      "item": "randomitems:titanium_block"
     },
     "R": {
       "item": "minecraft:redstone_block"
     },
-    "I": {
-      "item": "minecraft:iron_block"
+    "D": {
+      "item": "minecraft:diamond_block"
     },
     "L": {
       "item": "minecraft:redstone_lamp"
+    },
+    "I": {
+      "item": "minecraft:iron_block"
     },
     "!": {
       "item": "minecraft:lever"
     }
   },
   "result": {
-    "item": "randomitems:diamond_drill",
+    "item": "randomitems:titanium_drill",
     "count": 1
   }
 }

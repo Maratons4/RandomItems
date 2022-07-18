@@ -1,7 +1,9 @@
 package me.maratons4.randomitems;
 
 import me.maratons4.randomitems.items.DiamondDrill;
-import me.maratons4.randomitems.materials.IronBlockMaterial;
+import me.maratons4.randomitems.items.TitaniumDrill;
+import me.maratons4.randomitems.materials.Diamond_Material;
+import me.maratons4.randomitems.materials.TitaniumMaterial;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -35,11 +37,12 @@ public class RandomItems implements ModInitializer {
 
     public static final Logger LOGGER = LoggerFactory.getLogger("RandomItems");
     //public static final DiamondDrill DIAMOND_DRILL = new DiamondDrill(new Item.Settings().group(RandomItems.ITEM_GROUP).maxDamage(64).rarity(Rarity.EPIC));
-    public static final ToolItem DIAMOND_DRILL = new DiamondDrill(IronBlockMaterial.INSTANCE, 1, -2.8F,
+    public static final ToolItem DIAMOND_DRILL = new DiamondDrill(Diamond_Material.INSTANCE, 1, -2.8F,
             new Item.Settings().group(RandomItems.RANDOMITEMS));
-
-    public static final Block TITANIUM_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(20.0f).requiresTool());
-    public static final Block TITANIUM_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(20.0f).requiresTool());
+    public static final  ToolItem TITANIUM_DRILL = new TitaniumDrill(TitaniumMaterial.INSTANCE, 1, -2.8F,
+            new Item.Settings().group(RandomItems.RANDOMITEMS));
+    public static final Block TITANIUM_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(30.0f).requiresTool());
+    public static final Block TITANIUM_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(30.0f).requiresTool());
     public static final Item TITANIUM_INGOT = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
 
     private static ConfiguredFeature<?, ?> OVERWORLD_TITANIUM_ORE_CONFIGURED_FEATURE = new ConfiguredFeature
@@ -58,6 +61,7 @@ public class RandomItems implements ModInitializer {
     @Override
     public void onInitialize() {
         Registry.register(Registry.ITEM, new Identifier("randomitems", "diamond_drill"), DIAMOND_DRILL);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_drill"), TITANIUM_DRILL);
         Registry.register(Registry.BLOCK, new Identifier("randomitems", "titanium_ore"), TITANIUM_ORE);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_ore"), new BlockItem(TITANIUM_ORE, new FabricItemSettings().group(RandomItems.RANDOMITEMS)));
         Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_ingot"), TITANIUM_INGOT);
