@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "randomitems:titanium_ore"
+    "randomitems:titanium_ore",
+    "randomitems:titanium_block"
   ]
 }

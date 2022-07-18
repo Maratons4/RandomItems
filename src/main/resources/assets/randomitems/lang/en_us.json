@@ -1,5 +1,6 @@
 {
   "item.randomitems.diamond_drill": "Diamond Drill",
   "item.randomitems.titanium_ingot": "Titanium Ingot",
-  "block.randomitems.titanium_ore": "Titanium Ore"
+  "block.randomitems.titanium_ore": "Titanium Ore",
+  "block.randomitems.titanium_block": "Titanium Block"
 }

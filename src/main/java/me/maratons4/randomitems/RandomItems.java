@@ -38,7 +38,8 @@ public class RandomItems implements ModInitializer {
     public static final ToolItem DIAMOND_DRILL = new DiamondDrill(IronBlockMaterial.INSTANCE, 1, -2.8F,
             new Item.Settings().group(RandomItems.RANDOMITEMS));
 
-    public static final Block TITANIUM_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(5.0f).requiresTool());
+    public static final Block TITANIUM_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(20.0f).requiresTool());
+    public static final Block TITANIUM_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(20.0f).requiresTool());
     public static final Item TITANIUM_INGOT = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
 
     private static ConfiguredFeature<?, ?> OVERWORLD_TITANIUM_ORE_CONFIGURED_FEATURE = new ConfiguredFeature
@@ -60,6 +61,8 @@ public class RandomItems implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier("randomitems", "titanium_ore"), TITANIUM_ORE);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_ore"), new BlockItem(TITANIUM_ORE, new FabricItemSettings().group(RandomItems.RANDOMITEMS)));
         Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_ingot"), TITANIUM_INGOT);
+        Registry.register(Registry.BLOCK, new Identifier("randomitems", "titanium_block"), TITANIUM_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_block"), new BlockItem(TITANIUM_BLOCK, new FabricItemSettings().group(RandomItems.RANDOMITEMS)));
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
                 new Identifier("randomitems", "overworld_titanium_ore"), OVERWORLD_TITANIUM_ORE_CONFIGURED_FEATURE);
