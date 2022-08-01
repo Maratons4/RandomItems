@@ -2,9 +2,6 @@
   "item.randomitems.diamond_drill": "Diamond Drill",
   "item.randomitems.titanium_ingot": "Titanium Ingot",
   "item.randomitems.titanium_drill": "Titanium Drill",
-  "item.randomitems.cave_monster_spawn_egg": "Cave Monster Spawn Egg",
   "block.randomitems.titanium_ore": "Titanium Ore",
-  "block.randomitems.titanium_block": "Titanium Block",
-  "block.randomitems.kyanite_ore": "Kyanite Ore",
-  "entity.randomitems.cave_monster": "Cave Monster"
+  "block.randomitems.titanium_block": "Titanium Block"
 }
