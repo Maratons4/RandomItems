@@ -1,4 +1,4 @@
-package me.maratons4.randomitems.entities.CaveMonster;
+package me.maratons4.randomitems.entities.caveMonster;
 
 import me.maratons4.randomitems.RandomItemsClient;
 import net.minecraft.client.render.entity.EntityRendererFactory;

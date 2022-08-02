@@ -1,8 +1,7 @@
 package me.maratons4.randomitems;
 
-import me.maratons4.randomitems.RandomItems;
-import me.maratons4.randomitems.entities.CaveMonster.CaveMonsterEntityModel;
-import me.maratons4.randomitems.entities.CaveMonster.CaveMonsterEntityRenderer;
+import me.maratons4.randomitems.entities.caveMonster.CaveMonsterEntityModel;
+import me.maratons4.randomitems.entities.caveMonster.CaveMonsterEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -17,9 +16,7 @@ public class RandomItemsClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.register(RandomItems.CAVE_MONSTER, (context) -> {
-            return new CaveMonsterEntityRenderer(context);
-        });
+        EntityRendererRegistry.register(RandomItems.CAVE_MONSTER, CaveMonsterEntityRenderer::new);
 
         EntityModelLayerRegistry.registerModelLayer(MODEL_CAVE_MONSTER_LAYER, CaveMonsterEntityModel::getTexturedModelData);
     }

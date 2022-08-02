@@ -1,6 +1,6 @@
 package me.maratons4.randomitems;
 
-import me.maratons4.randomitems.entities.CaveMonster.CaveMonsterEntity;
+import me.maratons4.randomitems.entities.caveMonster.CaveMonsterEntity;
 import me.maratons4.randomitems.items.DiamondDrill;
 import me.maratons4.randomitems.items.TitaniumDrill;
 import me.maratons4.randomitems.materials.Diamond_Material;
@@ -30,12 +30,9 @@ import java.util.Arrays;
 
 public class RandomItems implements ModInitializer {
 
-
-
     public static final ItemGroup RANDOMITEMS = FabricItemGroupBuilder.build(
             new Identifier("randomitems", "general"),
             () -> new ItemStack(RandomItems.TITANIUM_INGOT));
-
     public static final Logger LOGGER = LoggerFactory.getLogger("RandomItems");
     //public static final DiamondDrill DIAMOND_DRILL = new DiamondDrill(new Item.Settings().group(RandomItems.ITEM_GROUP).maxDamage(64).rarity(Rarity.EPIC));
     public static final ToolItem DIAMOND_DRILL = new DiamondDrill(Diamond_Material.INSTANCE, 1, -2.8F,
@@ -45,10 +42,10 @@ public class RandomItems implements ModInitializer {
     public static final Block TITANIUM_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(30.0f).requiresTool());
     public static final Block TITANIUM_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(30.0f).requiresTool());
     public static final Item TITANIUM_INGOT = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
-    public static final Item CAVE_MONSTER_SPAWN_EGG = new SpawnEggItem(RandomItems.CAVE_MONSTER, 12895428, 11382189, new Item.Settings().group(RandomItems.RANDOMITEMS));
     public static final Block KYANITE_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(50.0f).requiresTool());
+    public static final Item KYANITE = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
 
-    private static final ConfiguredFeature<?, ?> OVERWORLD_TITANIUM_ORE_CONFIGURED_FEATURE = new ConfiguredFeature
+    private static final ConfiguredFeature<?, ?> OVERWORLD_TITANIUM_ORE_CONFIGURED_FEATURE = new ConfiguredFeature<>
             (Feature.ORE, new OreFeatureConfig(
                     OreConfiguredFeatures.STONE_ORE_REPLACEABLES,
                     RandomItems.TITANIUM_ORE.getDefaultState(),
@@ -62,7 +59,7 @@ public class RandomItems implements ModInitializer {
                     HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64)))); // height
 
 
-    private static final ConfiguredFeature<?, ?> NETHER_KYANITE_ORE_CONFIGURED_FEATURE = new ConfiguredFeature
+    private static final ConfiguredFeature<?, ?> NETHER_KYANITE_ORE_CONFIGURED_FEATURE = new ConfiguredFeature<>
             (Feature.ORE, new OreFeatureConfig(
                     OreConfiguredFeatures.NETHERRACK,
                     RandomItems.KYANITE_ORE.getDefaultState(),
@@ -79,6 +76,7 @@ public class RandomItems implements ModInitializer {
             new Identifier("randomitems", "cave_monster"),
             FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CaveMonsterEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
+    public static final Item CAVE_MONSTER_SPAWN_EGG = new SpawnEggItem(RandomItems.CAVE_MONSTER, 12895428, 6613140, new Item.Settings().group(RandomItems.RANDOMITEMS));
 
     @Override
     public void onInitialize() {
@@ -93,6 +91,8 @@ public class RandomItems implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_block"), new BlockItem(TITANIUM_BLOCK, new FabricItemSettings().group(RandomItems.RANDOMITEMS)));
         FabricDefaultAttributeRegistry.register(CAVE_MONSTER, CaveMonsterEntity.createMobAttributes());
         Registry.register(Registry.ITEM, new Identifier("randomitems", "cave_monster_spawn_egg"), CAVE_MONSTER_SPAWN_EGG);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite"), KYANITE);
+        
         //Registry.register(Registry.);
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
