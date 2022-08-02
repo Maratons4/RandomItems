@@ -1,9 +1,11 @@
 package me.maratons4.randomitems.materials;
 
+import me.maratons4.randomitems.RandomItems;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 
 
 //A boots, B leggings, C chestplate, D helmet
@@ -14,41 +16,41 @@ public class KyaniteMaterial implements ArmorMaterial {
 
     @Override
     public int getDurability(EquipmentSlot slot) {
-        return 0;
+        return BASE_DURABILITY[slot.getEntitySlotId()] * 40;
     }
 
     @Override
     public int getProtectionAmount(EquipmentSlot slot) {
-        return 0;
+        return PROTECTION_VALUES[slot.getEntitySlotId()];
     }
 
     @Override
     public int getEnchantability() {
-        return 0;
+        return 15;
     }
 
     @Override
     public SoundEvent getEquipSound() {
-        return null;
+        return SoundEvents.ITEM_ARMOR_EQUIP_NETHERITE;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return null;
+        return Ingredient.ofItems(RandomItems.KYANITE);
     }
 
     @Override
     public String getName() {
-        return null;
+        return "kyanite";
     }
 
     @Override
     public float getToughness() {
-        return 0;
+        return 3.0F;
     }
 
     @Override
     public float getKnockbackResistance() {
-        return 0;
+        return 0.1F;
     }
 }

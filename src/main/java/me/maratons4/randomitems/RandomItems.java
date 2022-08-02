@@ -1,9 +1,11 @@
 package me.maratons4.randomitems;
 
+import me.maratons4.randomitems.armor.ModArmorItem;
 import me.maratons4.randomitems.entities.caveMonster.CaveMonsterEntity;
 import me.maratons4.randomitems.items.DiamondDrill;
 import me.maratons4.randomitems.items.TitaniumDrill;
 import me.maratons4.randomitems.materials.Diamond_Material;
+import me.maratons4.randomitems.materials.KyaniteMaterial;
 import me.maratons4.randomitems.materials.TitaniumMaterial;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -26,6 +28,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
+import java.util.Random;
 
 
 public class RandomItems implements ModInitializer {
@@ -44,6 +47,12 @@ public class RandomItems implements ModInitializer {
     public static final Item TITANIUM_INGOT = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
     public static final Block KYANITE_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(50.0f).requiresTool());
     public static final Item KYANITE = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
+    public static final ArmorMaterial KyaniteMaterial = new KyaniteMaterial();
+    public static final Item KYANITE_HELMET = new ModArmorItem(KyaniteMaterial, EquipmentSlot.HEAD, new Item.Settings().group(RandomItems.RANDOMITEMS).fireproof());
+    public static final Item KYANITE_CHESTPLATE = new ModArmorItem(KyaniteMaterial, EquipmentSlot.CHEST, new Item.Settings().group(RandomItems.RANDOMITEMS).fireproof());
+    public static final Item KYANITE_LEGGINGS = new ModArmorItem(KyaniteMaterial, EquipmentSlot.LEGS, new Item.Settings().group(RandomItems.RANDOMITEMS).fireproof());
+    public static final Item KYANITE_BOOTS = new ModArmorItem(KyaniteMaterial, EquipmentSlot.FEET, new Item.Settings().group(RandomItems.RANDOMITEMS).fireproof());
+
 
     private static final ConfiguredFeature<?, ?> OVERWORLD_TITANIUM_ORE_CONFIGURED_FEATURE = new ConfiguredFeature<>
             (Feature.ORE, new OreFeatureConfig(
@@ -68,7 +77,7 @@ public class RandomItems implements ModInitializer {
     public static PlacedFeature NETHER_KYANITE_ORE_PLACED_FEATURE = new PlacedFeature(
             RegistryEntry.of(NETHER_KYANITE_ORE_CONFIGURED_FEATURE),
             Arrays.asList(
-                    CountPlacementModifier.of(10), // number of veins per chunk
+                    CountPlacementModifier.of(3), // number of veins per chunk
                     SquarePlacementModifier.of(), // spreading horizontally
                     HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64)))); // height
     public static final EntityType<CaveMonsterEntity> CAVE_MONSTER = Registry.register(
@@ -92,6 +101,10 @@ public class RandomItems implements ModInitializer {
         FabricDefaultAttributeRegistry.register(CAVE_MONSTER, CaveMonsterEntity.createMobAttributes());
         Registry.register(Registry.ITEM, new Identifier("randomitems", "cave_monster_spawn_egg"), CAVE_MONSTER_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite"), KYANITE);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_helmet"), KYANITE_HELMET);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_chestplate"), KYANITE_CHESTPLATE);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_leggings"), KYANITE_LEGGINGS);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_boots"), KYANITE_BOOTS);
         
         //Registry.register(Registry.);
 
