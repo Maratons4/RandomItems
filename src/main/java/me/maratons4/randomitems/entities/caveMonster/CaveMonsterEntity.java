@@ -1,4 +1,4 @@
-package me.maratons4.randomitems.entities.CaveMonster;
+package me.maratons4.randomitems.entities.caveMonster;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.boss.BossBar;

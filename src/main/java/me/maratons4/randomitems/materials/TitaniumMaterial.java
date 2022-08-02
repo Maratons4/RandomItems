@@ -1,7 +1,6 @@
 package me.maratons4.randomitems.materials;
 
 import me.maratons4.randomitems.RandomItems;
-import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 

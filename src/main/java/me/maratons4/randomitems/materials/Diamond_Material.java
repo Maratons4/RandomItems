@@ -14,7 +14,7 @@ public class Diamond_Material implements ToolMaterial {
     }
     @Override
     public float getMiningSpeedMultiplier() {
-        return 45.0F;
+        return 35.0F;
     }
     @Override
     public float getAttackDamage() {
