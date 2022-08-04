@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_boots"
+  },
+  "addition": {
+    "item": "randomitems:kyanite_piece_boots"
+  },
+  "result": {
+    "item": "randomitems:kyanite_boots"
+  }
+}

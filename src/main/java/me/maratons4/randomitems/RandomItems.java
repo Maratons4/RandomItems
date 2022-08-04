@@ -1,12 +1,9 @@
 package me.maratons4.randomitems;
 
 import me.maratons4.randomitems.armor.ModArmorItem;
-import me.maratons4.randomitems.entities.caveMonster.CaveMonsterEntity;
-import me.maratons4.randomitems.items.DiamondDrill;
-import me.maratons4.randomitems.items.TitaniumDrill;
-import me.maratons4.randomitems.materials.Diamond_Material;
-import me.maratons4.randomitems.materials.KyaniteMaterial;
-import me.maratons4.randomitems.materials.TitaniumMaterial;
+import me.maratons4.randomitems.entities.caveCube.CaveCubeEntity;
+import me.maratons4.randomitems.items.*;
+import me.maratons4.randomitems.materials.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -28,7 +25,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
-import java.util.Random;
 
 
 public class RandomItems implements ModInitializer {
@@ -45,7 +41,16 @@ public class RandomItems implements ModInitializer {
     public static final Block TITANIUM_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(30.0f).requiresTool());
     public static final Block TITANIUM_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(30.0f).requiresTool());
     public static final Item TITANIUM_INGOT = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
+    public static final Item GOLDEN_FRAME_HELMET = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
+    public static final Item GOLDEN_FRAME_CHESTPLATE = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
+    public static final Item GOLDEN_FRAME_LEGGINGS = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
+    public static final Item GOLDEN_FRAME_BOOTS = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
+    public static final Item KYANITE_PIECE_HELMET = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
+    public static final Item KYANITE_PIECE_CHESTPLATE = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
+    public static final Item KYANITE_PIECE_LEGGINGS = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
+    public static final Item KYANITE_PIECE_BOOTS = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
     public static final Block KYANITE_ORE = new Block(FabricBlockSettings.of(Material.METAL).strength(50.0f).requiresTool());
+    public static final Item HAMMER = new Hammer(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
     public static final Item KYANITE = new Item(new FabricItemSettings().group(RandomItems.RANDOMITEMS));
     public static final ArmorMaterial KyaniteMaterial = new KyaniteMaterial();
     public static final Item KYANITE_HELMET = new ModArmorItem(KyaniteMaterial, EquipmentSlot.HEAD, new Item.Settings().group(RandomItems.RANDOMITEMS).fireproof());
@@ -80,12 +85,12 @@ public class RandomItems implements ModInitializer {
                     CountPlacementModifier.of(3), // number of veins per chunk
                     SquarePlacementModifier.of(), // spreading horizontally
                     HeightRangePlacementModifier.uniform(YOffset.getBottom(), YOffset.fixed(64)))); // height
-    public static final EntityType<CaveMonsterEntity> CAVE_MONSTER = Registry.register(
+    public static final EntityType<CaveCubeEntity> CAVE_CUBE = Registry.register(
             Registry.ENTITY_TYPE,
-            new Identifier("randomitems", "cave_monster"),
-            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CaveMonsterEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+            new Identifier("randomitems", "cave_cube"),
+            FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CaveCubeEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
     );
-    public static final Item CAVE_MONSTER_SPAWN_EGG = new SpawnEggItem(RandomItems.CAVE_MONSTER, 12895428, 6613140, new Item.Settings().group(RandomItems.RANDOMITEMS));
+    public static final Item CAVE_CUBE_SPAWN_EGG = new SpawnEggItem(RandomItems.CAVE_CUBE, 12895428, 6613140, new Item.Settings().group(RandomItems.RANDOMITEMS));
 
     @Override
     public void onInitialize() {
@@ -98,14 +103,22 @@ public class RandomItems implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier("randomitems", "kyanite_ore"), KYANITE_ORE);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_ore"), new BlockItem(KYANITE_ORE, new FabricItemSettings().group(RandomItems.RANDOMITEMS)));
         Registry.register(Registry.ITEM, new Identifier("randomitems", "titanium_block"), new BlockItem(TITANIUM_BLOCK, new FabricItemSettings().group(RandomItems.RANDOMITEMS)));
-        FabricDefaultAttributeRegistry.register(CAVE_MONSTER, CaveMonsterEntity.createMobAttributes());
-        Registry.register(Registry.ITEM, new Identifier("randomitems", "cave_monster_spawn_egg"), CAVE_MONSTER_SPAWN_EGG);
+        FabricDefaultAttributeRegistry.register(CAVE_CUBE, CaveCubeEntity.createMobAttributes());
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "cave_cube_spawn_egg"), CAVE_CUBE_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite"), KYANITE);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_helmet"), KYANITE_HELMET);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_chestplate"), KYANITE_CHESTPLATE);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_leggings"), KYANITE_LEGGINGS);
         Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_boots"), KYANITE_BOOTS);
-        
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "golden_frame_helmet"), GOLDEN_FRAME_HELMET);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "golden_frame_chestplate"), GOLDEN_FRAME_CHESTPLATE);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "golden_frame_leggings"), GOLDEN_FRAME_LEGGINGS);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "golden_frame_boots"), GOLDEN_FRAME_BOOTS);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "hammer"), HAMMER);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_piece_helmet"), KYANITE_PIECE_HELMET);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_piece_chestplate"), KYANITE_PIECE_CHESTPLATE);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_piece_leggings"), KYANITE_PIECE_LEGGINGS);
+        Registry.register(Registry.ITEM, new Identifier("randomitems", "kyanite_piece_boots"), KYANITE_PIECE_BOOTS);
         //Registry.register(Registry.);
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,

@@ -1,17 +1,12 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "KKK",
-    "K K",
-    "K K"
-  ],
-  "key": {
-    "K": {
-      "item": "randomitems:kyanite"
-    }
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_leggings"
+  },
+  "addition": {
+    "item": "randomitems:kyanite_piece_leggings"
   },
   "result": {
-    "item": "randomitems:kyanite_leggings",
-    "count": 1
+    "item": "randomitems:kyanite_leggings"
   }
 }

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GLG",
+    "GIG",
+    "GHG"
+  ],
+  "key": {
+    "L": {
+      "item": "minecraft:lava_bucket"
+    },
+    "I": {
+      "item": "minecraft:iron_helmet"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "H": {
+      "item": "randomitems:hammer"
+    }
+  },
+  "result": {
+    "item": "randomitems:golden_frame_helmet",
+    "count": 1
+  }
+}

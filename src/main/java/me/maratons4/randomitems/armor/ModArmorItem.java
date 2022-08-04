@@ -18,7 +18,7 @@ public class ModArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, StatusEffectInstance> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, StatusEffectInstance>())
                     .put(RandomItems.KyaniteMaterial,
-                            new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 400, 1)).build();
+                            new StatusEffectInstance(StatusEffects.FIRE_RESISTANCE, 100, 1)).build();
 
     public ModArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
         super(material, slot, settings);

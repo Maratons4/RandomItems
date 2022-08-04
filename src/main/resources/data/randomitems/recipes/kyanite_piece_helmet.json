@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "randomitems:golden_frame_helmet"
+    },
+    {
+      "item": "randomitems:kyanite"
+    },
+    {
+      "item": "randomitems:kyanite"
+    },
+    {
+      "item": "randomitems:kyanite"
+    },
+    {
+      "item": "randomitems:kyanite"
+    },
+    {
+      "item": "randomitems:kyanite"
+    },
+    {
+      "item": "randomitems:kyanite"
+    },
+    {
+      "item": "randomitems:kyanite"
+    },
+    {
+      "item": "randomitems:kyanite"
+    }
+  ],
+  "result": {
+    "item": "randomitems:kyanite_piece_helmet",
+    "count": 1
+  }
+}

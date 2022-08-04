@@ -1,17 +1,12 @@
 {
-  "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "K K",
-    "KKK",
-    "KKK"
-  ],
-  "key": {
-    "K": {
-      "item": "randomitems:kyanite"
-    }
+  "type": "minecraft:smithing",
+  "base": {
+    "item": "minecraft:netherite_chestplate"
+  },
+  "addition": {
+    "item": "randomitems:kyanite_piece_chestplate"
   },
   "result": {
-    "item": "randomitems:kyanite_chestplate",
-    "count": 1
+    "item": "randomitems:kyanite_chestplate"
   }
 }

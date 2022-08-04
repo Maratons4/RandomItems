@@ -1,7 +1,7 @@
 package me.maratons4.randomitems;
 
-import me.maratons4.randomitems.entities.caveMonster.CaveMonsterEntityModel;
-import me.maratons4.randomitems.entities.caveMonster.CaveMonsterEntityRenderer;
+import me.maratons4.randomitems.entities.caveCube.CaveCubeEntityModel;
+import me.maratons4.randomitems.entities.caveCube.CaveCubeEntityRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -12,12 +12,12 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class RandomItemsClient implements ClientModInitializer {
-    public static final EntityModelLayer MODEL_CAVE_MONSTER_LAYER = new EntityModelLayer(new Identifier("randomitems", "cave_monster"), "main");
+    public static final EntityModelLayer MODEL_CAVE_CUBE_LAYER = new EntityModelLayer(new Identifier("randomitems", "cave_cube"), "main");
 
     @Override
     public void onInitializeClient() {
-        EntityRendererRegistry.register(RandomItems.CAVE_MONSTER, CaveMonsterEntityRenderer::new);
+        EntityRendererRegistry.register(RandomItems.CAVE_CUBE, CaveCubeEntityRenderer::new);
 
-        EntityModelLayerRegistry.registerModelLayer(MODEL_CAVE_MONSTER_LAYER, CaveMonsterEntityModel::getTexturedModelData);
+        EntityModelLayerRegistry.registerModelLayer(MODEL_CAVE_CUBE_LAYER, CaveCubeEntityModel::getTexturedModelData);
     }
 }
