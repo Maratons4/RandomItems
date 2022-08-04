@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "K K",
+    "K K"
+  ],
+  "key": {
+    "K": {
+      "item": "randomitems:kyanite"
+    }
+  },
+  "result": {
+    "item": "randomitems:kyanite_boots",
+    "count": 1
+  }
+}
